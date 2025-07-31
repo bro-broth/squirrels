@@ -19,7 +19,9 @@ import useSound from "use-sound"
 // Functions for localStorage
 const saveScoreToCache = (score: number) => {
   try {
-    localStorage.setItem("squirrels-brc2-score", score.toString())
+    if (typeof window !== "undefined") {
+        localStorage.setItem("squirrels-brc2-score", score.toString())
+    }
   } catch (error) {
     console.error("Failed to save score to cache:", error)
   }
